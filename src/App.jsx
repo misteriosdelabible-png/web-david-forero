@@ -1,8 +1,12 @@
 import React from 'react';
 
 export default function App() {
+  const whatsappNumber = "573155185262";
+  const whatsappMessage = encodeURIComponent("Hola David, quiero aplicar a la Asesoría Black 1:1 por el precio de lanzamiento de $199.000");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   return (
-    <div className="min-h-screen bg-[#111111] text-white font-sans">
+    <div className="min-h-screen bg-[#111111] text-white font-sans relative">
       {/* Barra superior de confianza */}
       <div className="bg-[#1a1a1a] border-b border-neutral-800 py-2 px-4 text-center text-xs text-neutral-400">
         🔒 Arquitectura de Alto Rendimiento | Asesoría 100% Personalizada con David Forero
@@ -16,7 +20,7 @@ export default function App() {
         <nav className="hidden md:flex gap-8 text-sm text-neutral-300">
           <a href="#inicio" className="hover:text-[#67D948] transition">Inicio</a>
           <a href="#asesoria" className="hover:text-[#67D948] transition">Asesoría Black 1:1</a>
-          <a href="#sobre-mi" className="hover:text-[#67D948] transition">Quién Soy</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#67D948] transition">Contacto</a>
         </nav>
         <a 
           href="https://checkout.wompi.co/l/mL9oLI" 
@@ -49,6 +53,14 @@ export default function App() {
             >
               EMPEZAR ASESORÍA BLACK
             </a>
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-neutral-700 hover:border-[#67D948] text-white font-bold px-8 py-4 rounded-xl transition text-center"
+            >
+              HACER UNA PREGUNTA
+            </a>
           </div>
         </div>
 
@@ -79,9 +91,18 @@ export default function App() {
             href="https://checkout.wompi.co/l/mL9oLI" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block w-full bg-[#67D948] text-[#111111] font-bold py-3.5 rounded-xl text-center hover:opacity-90 transition"
+            className="block w-full bg-[#67D948] text-[#111111] font-bold py-3.5 rounded-xl text-center hover:opacity-90 transition mb-3"
           >
             PAGAR CON WOMPI ($199.000)
+          </a>
+          
+          <a 
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center text-xs text-neutral-400 hover:text-[#67D948] transition py-1"
+          >
+            ¿Tienes dudas antes de pagar? Escríbeme al WhatsApp 💬
           </a>
         </div>
       </section>
@@ -111,6 +132,17 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition flex items-center justify-center z-50 text-2xl"
+        title="Escríbeme por WhatsApp"
+      >
+        💬
+      </a>
 
       {/* Footer */}
       <footer className="border-t border-neutral-900 py-8 text-center text-xs text-neutral-500">
